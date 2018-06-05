@@ -1,0 +1,27 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+  instance:
+    instance-id: microservicecloud-zuul #status的别名修改
+    prefer-ip-address: true #访问路径可以显示Ip地址
+
+zuul:
+  ignored-services: microservicecloud-dept
+  routes:
+    mydept2.serviceId: microservicecloud-dept
+    mydept2.path: /mydept/**
+
+info:
+  name: zuul服务提供者
+  version: 0.0.1
+  app:
+    desc: zuul微服务提供者

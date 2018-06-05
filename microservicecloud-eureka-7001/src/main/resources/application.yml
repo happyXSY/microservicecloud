@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eurekaServer7001
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: localhost #eureka服务端的实例名称
+    ipAddress: 192.168.77.76
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    register-with-eureka: true #是否向注册中心注册自己
+    fetch-registry: true #false表示自己就是注册中心，职责是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:7002/eureka/

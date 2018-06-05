@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: microservicecloud-config-client #git仓库读取的资源名称
+      profile: test
+      label: master
+      uri: http://localhost:3344 #config server地址

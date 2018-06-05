@@ -1,0 +1,36 @@
+server:
+  port: 8003
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: org.microservicecloud.api.entity
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB_03
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+  #EurekaServer的信息细节
+  instance:
+    instance-id: microservicecloud-dept8003-hystrix #status的别名修改
+    prefer-ip-address: true #访问路径可以显示Ip地址
+info:
+  name: 测试服务提供者
+  version: 0.0.1
+  app:
+    desc: 微服务提供者

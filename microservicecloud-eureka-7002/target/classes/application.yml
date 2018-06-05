@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eurekaServer7002
+server:
+  port: 7002
+
+eureka:
+  instance:
+    hostname: localhost
+    ipAddress: 192.168.77.76
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:7001/eureka/

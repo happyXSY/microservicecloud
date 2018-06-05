@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.microservicecloud.provider.dept.mapper.DeptMapper">
+	<select id="findAll" resultType="org.microservicecloud.api.entity.Dept">
+		select id,name,dbsource from dept
+	</select>
+	<select id="selectById" resultType="Dept" parameterType="Integer">
+		select id,name,dbsource from dept where id=#{id}
+	 </select>
+	 <insert id="insertDept" parameterType="Dept">
+	 	INSERT INTO dept(name,dbsource) values(#{name},DATABASE())
+	 </insert>
+</mapper>
